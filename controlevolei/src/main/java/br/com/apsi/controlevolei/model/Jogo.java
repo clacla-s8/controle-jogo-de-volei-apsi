@@ -1,31 +1,35 @@
 package br.com.apsi.controlevolei.model;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import javax.persistence.*;
 
 @Entity
 public class Jogo {
-	
-	 @Id
-	 @GeneratedValue(strategy = GenerationType.IDENTITY)
-	 @Column(name = "id", updatable = false, nullable = false)
-	 private Long id;	
-	 
-	 @Column
-	 private String local;
-	 
-	 @Column
-	 private String time_adversario;
-	 
-	 @Column
-	 private String juiz;
-	 
-	 @Column
-	 private String juiz_auxiliar;
-	 
-	 @Column
-	 private LocalDateTime data_hora;
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id", updatable = false, nullable = false)
+	private Long id;
+
+	@Column
+	private String local;
+
+	@Column
+	private String time_adversario;
+
+	@Column
+	private String juiz;
+
+	@Column
+	private String juiz_auxiliar;
+
+	@Column
+	private LocalDateTime data_hora;
+
+	@OneToMany(mappedBy = "jogo")
+	private List<Set> sets;
 
 	public Long getId() {
 		return id;
@@ -74,6 +78,5 @@ public class Jogo {
 	public void setData_hora(LocalDateTime data_hora) {
 		this.data_hora = data_hora;
 	}
-	
 
 }

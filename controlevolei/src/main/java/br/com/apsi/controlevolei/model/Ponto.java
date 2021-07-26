@@ -19,9 +19,13 @@ public class Ponto {
 	@Column
 	private EnumTipoBloqueio tipo_bloqueio;
 
-	@ManyToOne
+	@ManyToOne // um set poderá ter muitos pontos
 	@JoinColumn(name = "ponto_id")
 	private Ponto ponto;
+
+	@ManyToOne // um jogador poderá ter muitos pontos
+	@JoinColumn(name = "jogador_id")
+	private Jogador jogador;
 
 	public Long getId() {
 		return id;
@@ -53,14 +57,6 @@ public class Ponto {
 
 	public void setTipo_bloqueio(EnumTipoBloqueio tipo_bloqueio) {
 		this.tipo_bloqueio = tipo_bloqueio;
-	}
-
-	public Ponto getPonto() {
-		return ponto;
-	}
-
-	public void setPonto(Ponto ponto) {
-		this.ponto = ponto;
 	}
 
 }

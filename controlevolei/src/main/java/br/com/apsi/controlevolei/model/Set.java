@@ -1,22 +1,31 @@
 package br.com.apsi.controlevolei.model;
 
+import java.util.List;
+
 import javax.persistence.*;
 
 @Entity
 public class Set {
-	 @Id
-	 @GeneratedValue(strategy = GenerationType.IDENTITY)
-	 @Column(name = "id", updatable = false, nullable = false)
-	 private Long id;	
-	 
-	 @Column
-	 private int ponto_casa;
-	 
-	 @Column
-	 private int ponto_adversario;
-	 
-	 @Column
-	 private int numero_set;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id", updatable = false, nullable = false)
+	private Long id;
+
+	@Column
+	private int ponto_casa;
+
+	@Column
+	private int ponto_adversario;
+
+	@Column
+	private int numero_set;
+	
+	@OneToMany(mappedBy = "set")
+	private List<Ponto> pontos;
+	
+	@ManyToOne // um jogador poderá ter muitos pontos
+	@JoinColumn(name = "jogo_id")
+	private Jogo jogo;
 
 	public Long getId() {
 		return id;
@@ -49,8 +58,7 @@ public class Set {
 	public void setNumero_set(int numero_set) {
 		this.numero_set = numero_set;
 	}
-	 
-	 
-	 
-	 
+
+	
+
 }
