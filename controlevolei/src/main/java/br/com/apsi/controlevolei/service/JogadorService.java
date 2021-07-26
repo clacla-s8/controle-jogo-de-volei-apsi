@@ -9,27 +9,28 @@ import org.springframework.transaction.annotation.Transactional;
 import br.com.apsi.controlevolei.model.Jogador;
 import br.com.apsi.controlevolei.repository.JogadorRepository;
 
+
 @Service
 @Transactional
 public class JogadorService {
 	
 	@Autowired
-	private JogadorRepository repo;
+	private JogadorRepository jogadorRepo;
 	
 	public List<Jogador> listAll() {
-        return repo.findAll();
+        return jogadorRepo.findAll();
     }
      
     public void save(Jogador jogador) {
-        repo.save(jogador);
+        jogadorRepo.save(jogador);
     }
      
     public Jogador get(long id) {
-        return repo.findById(id).get();
+        return jogadorRepo.findById(id).get();
     }
      
     public void delete(long id) {
-        repo.deleteById(id);
+        jogadorRepo.deleteById(id);
     }
 
 }
