@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments :: html_head">
+</head>
+<body>
+	<div class="container">
+		<div th:replace="fragments :: menu"></div>
+
+		<div th:if="${success}">
+			<div class="alert alert-info" th:utext="${success}"
+				style="text-align: center;"></div>
+
+		</div>
+		
+
+
+		
+	</div>
+
+
+</body>
+</html>

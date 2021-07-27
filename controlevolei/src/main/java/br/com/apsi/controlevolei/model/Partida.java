@@ -5,25 +5,26 @@ import java.util.List;
 import javax.persistence.*;
 
 @Entity
-public class Set {
+public class Partida {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id", updatable = false, nullable = false)
 	private Long id;
 
-	@Column
+	@Column(name = "ponto_casa")
 	private int ponto_casa;
 
-	@Column
+	@Column(name = "ponto_adversario")
 	private int ponto_adversario;
 
-	@Column
+	@Column(name = "numero_set")
 	private int numero_set;
 	
 	@OneToMany(mappedBy = "set")
 	private List<Ponto> pontos;
 	
-	@ManyToOne // um jogador poderá ter muitos pontos
+	@ManyToOne 
 	@JoinColumn(name = "jogo_id")
 	private Jogo jogo;
 

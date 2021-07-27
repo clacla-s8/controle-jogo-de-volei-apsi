@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html 
+	xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments :: html_head">
+<meta charset="UTF-8" />
+<title layout:fragment="title">Jogador</title>
+</head>
+
+<body>
+
+
+	
+<div th:replace="fragments :: menu"></div>
+		<div class="container" id="cadastro" style="padding:70px;">
+		
+			<div class="row justify-content-center mb-5">
+
+				<div class="col-sm-12 col-md-10 col-lg-8">
+					<h2 class="text-center">Cadastrar Jogador</h2>
+					
+						
+					<form
+						th:action="${jogador.id == null} ? @{/jogadores/salvar} : @{/jogadores/editar}"
+						th:object="${jogador}" method="POST">
+
+
+						<div class="form-group">
+							<label class="font-weight-bold">Nome</label> <input
+								class="form-control" type="text" th:field="*{nome}"
+								placeholder="Nome" /> 
+						</div>
+						<div class="form-group">
+							<label class="font-weight-bold">Camisa</label> <input
+								class="form-control" type="number" th:field="*{camisa}"
+								placeholder="Numero da camisa" >
+
+						</div>
+						
+						<div class="form-row">
+							<div class="col-3">
+								<input type="hidden" id="id" th:field="*{id}" />
+								<button type="submit"
+									class="btn btn-primary btn-block font-weight-bold">Confirmar</button>
+							</div>
+							<div class="col-3">
+								<a class="btn btn-outline-secondary btn-block font-weight-bold"
+									th:href="@{/}"> Voltar </a>
+							</div>
+						</div>
+
+					</form>
+
+				</div>
+			</div>
+		</div>
+
+
+
+	
+
+</body>
+
+</html>

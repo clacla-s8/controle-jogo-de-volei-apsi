@@ -29,7 +29,7 @@ public class Jogo {
 	private LocalDateTime data_hora;
 
 	@OneToMany(mappedBy = "jogo")
-	private List<Set> sets;
+	private List<Partida> sets;
 
 	public Long getId() {
 		return id;

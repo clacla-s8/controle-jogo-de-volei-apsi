@@ -20,8 +20,8 @@ public class Ponto {
 	private EnumTipoBloqueio tipo_bloqueio;
 
 	@ManyToOne // um set poderá ter muitos pontos
-	@JoinColumn(name = "ponto_id")
-	private Ponto ponto;
+	@JoinColumn(name = "set_id")
+	private Partida set;
 
 	@ManyToOne // um jogador poderá ter muitos pontos
 	@JoinColumn(name = "jogador_id")
